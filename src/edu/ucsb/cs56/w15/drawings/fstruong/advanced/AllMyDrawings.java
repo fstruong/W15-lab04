@@ -60,8 +60,8 @@ public class AllMyDrawings
 	
 	// Draw two houses with Windows
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	IceCreamWithToppings hw1 = new IceCreamWithToppings(50,350,40,75);
+	IceCreamWithToppings hw2 = new IceCreamWithToppings(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
@@ -72,7 +72,6 @@ public class AllMyDrawings
 	g2.setColor(Color.BLACK); 
 	g2.drawString("A few ice cream cones by Felicia Truong", 20,20);
     }
-
 
     /** Draw a picture with a few houses and coffee cups
      */
@@ -118,8 +117,8 @@ public class AllMyDrawings
 	
 	// Draw two houses with Windows
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	IceCreamWithToppings hw1 = new IceCreamWithToppings(50,350,40,75);
+	IceCreamWithToppings hw2 = new IceCreamWithToppings(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); 
