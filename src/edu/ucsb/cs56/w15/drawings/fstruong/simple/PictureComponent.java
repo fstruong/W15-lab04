@@ -109,7 +109,7 @@ public class PictureComponent extends JComponent
        // @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
        
        g2.drawString("A house and a snowman, by Phill Conrad", 20,20);
-       g2.drawString("Top of snowman added by YOUR NAME HERE", 20,40);
+       g2.drawString("Top of snowman added by Felicia Truong", 20,40);
     }
 
         
