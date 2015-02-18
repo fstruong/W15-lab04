@@ -37,13 +37,16 @@ public class IceCreamWithToppings extends IceCream implements Shape
     public IceCreamWithToppings(double x, double y, double width, double height){
     	// construct basic ice cream cone
     	super(x,y,width,height);
+    	
+    	// construct second scoop
     	Ellipse2D.Double second = 
             new Ellipse2D.Double (x+width/10, y-height+height/5, width-width/5, height-height/5);
+    	
+    	// construct cherry
     	Ellipse2D.Double cherry = 
             new Ellipse2D.Double (x+width/4, y-height-height/2+height/5, width/2, height/2);
   
         // put the whole cone together
-       
         GeneralPath wholeCone = this.get();
         wholeCone.append(cherry, false);
         wholeCone.append(second, false);
