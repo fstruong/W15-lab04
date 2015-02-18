@@ -40,7 +40,7 @@ public class IceCreamWithToppings extends IceCream implements Shape
     	Ellipse2D.Double second = 
             new Ellipse2D.Double (x+width/10, y-height+height/5, width-width/5, height-height/5);
     	Ellipse2D.Double cherry = 
-            new Ellipse2D.Double (x+width/4, y-height-height/2, width/2, height/2);
+            new Ellipse2D.Double (x+width/4, y-height-height/2+height/5, width/2, height/2);
   
         // put the whole cone together
        
