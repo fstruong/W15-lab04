@@ -38,20 +38,22 @@ public class IceCream extends GeneralPathWrapper implements Shape
          // Make the scoop
         Arc2D.Double scoop
                     = new Arc2D.Double(x, y, width, height, 0, 180, Arc2D.OPEN);
-                          
+              
+        // Make left side of cone
         Line2D.Double leftCone = 
             new Line2D.Double (x, y+height/2,
                                x + width/2, y+height*2);
-                               
+    	// Make right side of cone               
         Line2D.Double rightCone =
             new Line2D.Double (x + width/2, y+height*2,
                                x + width, y+height/2);
-
+		
+		// Make top side of cone
 		 Line2D.Double topCone =
             new Line2D.Double (x, y+height/2,
                                x + width, y+height/2);
+        
         // put the whole cone together
-       
         GeneralPath wholeCone = this.get();
         wholeCone.append(scoop, false);
         wholeCone.append(leftCone, false);
