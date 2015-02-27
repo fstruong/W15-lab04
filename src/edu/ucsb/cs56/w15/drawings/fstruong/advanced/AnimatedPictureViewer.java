@@ -1,5 +1,6 @@
 package edu.ucsb.cs56.w15.drawings.fstruong.advanced;
 
+import edu.ucsb.cs56.w15.drawings.utilities.ShapeTransforms;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -13,6 +14,7 @@ public class AnimatedPictureViewer {
     private int y = 50;
     private int dx = 5;
     private int dy = 3; 
+    private int deg = 5;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -27,25 +29,22 @@ public class AnimatedPictureViewer {
       frame.setVisible(true);
       
       frame.getContentPane().addMouseListener(new MouseAdapter() {
-      	public void mouseEntered(MouseEvent e){
-			  anim = new Animation();
-			  anim.start();
-			}
-
-        public void mouseExited(MouseEvent e){        
-          // Kill the animation thread
+      	public void mouseEntered(MouseEvent e){ // when mouse enters the screen start animation
+          anim = new Animation();
+          anim.start();
+        }
+        public void mouseExited(MouseEvent e){      
           anim.interrupt();
           while (anim.isAlive()){}
           anim = null;         
-          panel.repaint();        
+          panel.repaint();   
         }
       });
-    } // go()
-
+	}
     class DrawPanel extends JPanel {
-       public void paintComponent(Graphics g) {
+       public void paintComponent(Graphics g) { // when mouse exits the screen stop animation
 
-        	Graphics2D g2 = (Graphics2D) g;
+        Graphics2D g2 = (Graphics2D) g;
 
          // Clear the panel first
           g2.setColor(Color.white);
@@ -53,8 +52,9 @@ public class AnimatedPictureViewer {
 
           // Draw the IceCream
           g2.setColor(Color.RED);
-          IceCream test = new IceCream(x, y, 100, 100);
-          g2.draw(test);
+          IceCreamWithToppings cone = new IceCreamWithToppings(x, y, 100, 100);
+          Shape rotated_cone = ShapeTransforms.rotatedCopyOf(cone, deg); // rotate ice cream cone
+          g2.draw(rotated_cone);
          
        }
     }
@@ -63,10 +63,9 @@ public class AnimatedPictureViewer {
       public void run() {
         try {
           while (true) {
-            // Bounce off the walls
-            if (x>=
-           	if (x >= 400) { dx = -5; dy = -5; }
-        	if (x <= 50) { dx = 5; }
+           	if (x >= 400) { dx = -5; dy = -3; } // move diagonally
+        	if (x <= 100) { dx = 5; dy = 3; }
+        	deg += 3;
             x += dx;
             y += dy;
             panel.repaint();
@@ -74,7 +73,6 @@ public class AnimatedPictureViewer {
           }
         } catch(Exception ex) {
           if (ex instanceof InterruptedException) {
-            // Do nothing - expected on mouseExited
           } else {
             ex.printStackTrace();
             System.exit(1);

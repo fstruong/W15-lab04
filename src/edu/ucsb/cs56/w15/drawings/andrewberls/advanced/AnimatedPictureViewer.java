@@ -21,7 +21,7 @@ public class AnimatedPictureViewer {
       new AnimatedPictureViewer().go();
     }
 
-    public void go() {
+    public void go () {
       JFrame frame = new JFrame();
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
